@@ -57,7 +57,7 @@ You can take the `assets` folder in this folder as the base for your cluster. In
 
 ### Sample modules
 
-_original modules_ contains HTML5 modules exported by Adobe Captivate without any "factorisation". You can use them for this tutorial.
+_sample_ contains HTML5 modules exported by Adobe Captivate without any "factorisation". You can use them for this tutorial.
 
 ### CLI
 If you are used to CLI, this is right for you.
