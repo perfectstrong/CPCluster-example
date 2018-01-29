@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CPCluster-example</title>
+</head>
+
+<body>
+    <script>
+        // Data of modules
+        var modules = {
+            example1: {
+                initiator: 'module/example1/CPProjInit.js',
+                imagesJSONFiles: ['module/example1/dr/imgmd.json'],
+                imageJSONFiles: ['module/example1/dr/img1.json']
+            },
+            example2: {
+                initiator: 'module/example2/CPProjInit.js',
+                imagesJSONFiles: ['module/example2/dr/imgmd.json'],
+                imageJSONFiles: ['module/example2/dr/img1.json']
+            }
+        };
+    </script>
+    <style>
+        a[data-module] {
+            cursor: pointer;
+        }
+    </style>
+    <h1>List of clustered modules</h1>
+    <div>
+        <ul>
+            <li>
+                <a data-module="example1">Example 1</a>
+            </li>
+            <li>
+                <a data-module="example2">Example 2</a>
+            </li>
+        </ul>
+    </div>
+    <h1>Iframe of project</h1>
+    <div>
+        <iframe id="unit-loader" src="" width="1280" height="720"></iframe>
+    </div>
+    <script>
+        var unitloader = document.querySelector('iframe#unit-loader');
+        document.querySelectorAll('a[data-module]')
+            .forEach(module =>
+                module.addEventListener('click', ev => {
+                    var id = ev.target.getAttribute('data-module');
+                    unitloader.setAttribute('src', 'unitLoader.html');
+                    window.sessionStorage.setItem('module', JSON.stringify(modules[id]));
+                }, false)
+            );
+    </script>
+</body>
+
+</html>
